@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Exchange Chat</title>
+    <title>Language Exchange</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="chat-window">
-        <div id="output"></div>
-        <input id="message" type="text" placeholder="Enter message...">
-        <button id="send">Send</button>
+    <div class="container">
+        <h1>Welcome to Language Exchange</h1>
+        <form id="signup-form">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#">Login here</a></p>
     </div>
-
-    <!-- Link to the JavaScript file -->
-    <script src="app.js"></script>
-
 <!-- Firebase App (the core Firebase SDK) -->
 <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
 
