@@ -1,20 +1,21 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCEuESYyNR5TfChCSV6PWj8f46FzNXlhx0",
-  authDomain: "langini.firebaseapp.com",
-  projectId: "langini",
-  storageBucket: "langini.appspot.com",
-  messagingSenderId: "725648160835",
-  appId: "1:725648160835:web:29266df7e89fa7e670fcf6",
-  measurementId: "G-LJ1MF9C2P2"
-};
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyC2J-gVUKeZ8VYi5thJQ6Dzo35JKWNNQb0",
+    authDomain: "languini-1fa45.firebaseapp.com",
+    projectId: "languini-1fa45",
+    storageBucket: "languini-1fa45.appspot.com",
+    messagingSenderId: "126920440176",
+    appId: "1:126920440176:web:2b197dcd93c5752fa577b5",
+    measurementId: "G-76LM99MDN5"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
