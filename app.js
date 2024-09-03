@@ -22,3 +22,23 @@ const analytics = getAnalytics(app);
 const auth = firebase.auth();
 const db = firebase.firestore();
 const storage = firebase.storage();
+
+document.getElementById('signup-form').addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            return user.sendEmailVerification();
+        })
+        .then(() => {
+            alert('Verification email sent! Please check your inbox.');
+            window.location.href = 'profile-setup.html';  // Redirect to profile setup page
+        })
+        .catch((error) => {
+            alert(error.message);
+        });
+});
