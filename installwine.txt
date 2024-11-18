@@ -1,0 +1,9 @@
+sudo dpkg --add-architecture i386
+wget -nc https://dl.winehq.org/wine-builds/linux/setup/winehq-stable.deb-dependencies.gpg
+sudo mkdir -pm755 /etc/apt/keyrings
+sudo mv winehq-stable.deb-dependencies.gpg /etc/apt/keyrings/
+sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/linux/winehq.list
+sudo apt update
+sudo apt install --install-recommends winehq-stable
+sudo apt-get install winetricks
+wine --version
