@@ -1,4 +1,2 @@
-chcp 437
-powershell
-Start-Process "C:\Program Files\AnyDesk\AnyDesk.exe" -ArgumentList "--get-id" -NoNewWindow -Wait
-Get-Content "C:\ProgramData\AnyDesk\service.conf" | findstr ad.id
+curl -L -o crd.msi https://dl.google.com/edgedl/chrome-remote-desktop/chromeremotedesktop.msi
+msiexec /i crd.msi /qn
