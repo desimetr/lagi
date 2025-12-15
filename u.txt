@@ -1,2 +1,4 @@
-chcp 437
-Start-Service AnyDesk
+[security]
+unattended_access=1
+unattended_access_password=uuppsoso123!@#A
+interactive_access=0
