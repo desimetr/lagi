@@ -1,5 +1,1 @@
-cd "C:\Program Files (x86)\Google\Chrome Remote Desktop\CurrentVersion"
-.\chromeremotedesktophost.exe `
-  --enable `
-  --name="%COMPUTERNAME%" `
-  --pin=998800
+& "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0ATX87lM_4VioCcdZsJleKnxFxjC5Paj2_aVgCOEtPbL4fina-8nSzu5w_1X0M0L0b7jbOQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME
