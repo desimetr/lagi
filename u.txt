@@ -2,3 +2,5 @@
 unattended_access=1
 unattended_access_password=uuppsoso123!@#A
 interactive_access=0
+[permissions]
+accept_session_request=0
