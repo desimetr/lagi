@@ -1,2 +1,2 @@
 chcp 437
-reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections
+netstat -an | find "3389"
