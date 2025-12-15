@@ -1,1 +1,1 @@
-net stop TermService & net start TermService
+reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections
