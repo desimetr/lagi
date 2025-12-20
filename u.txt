@@ -1,5 +1,1 @@
-& "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0ATX87lOMaqCgvQMxSlx1L4M1hLOu310lAsUGRv89gHkqtKlcrPx0myzXh9VkTBYWAKPUSA" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME
-
-998800
-
-998800
+Invoke-WebRequest -Uri "https://github.com/rustdesk/rustdesk/releases/download/1.3.9/rustdesk-1.3.9-x86_64.exe" -OutFile "C:\rustdesk.exe"
