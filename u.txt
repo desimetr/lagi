@@ -1,1 +1,62 @@
-Invoke-WebRequest -Uri "https://github.com/rustdesk/rustdesk/releases/download/1.3.9/rustdesk-1.3.9-x86_64.exe" -OutFile "C:\erp-codgox-front\rustdesk.exe"
+@echo off
+setlocal EnableExtensions
+
+REM ===== CONFIG =====
+set URL=https://github.com/rustdesk/rustdesk/releases/download/1.4.4/rustdesk-1.4.4-x86_64.msi
+set MSI=%TEMP%\rustdesk-1.4.4.msi
+set PASS=StrongPass123!
+
+echo ===== DOWNLOAD RUSTDESK =====
+powershell -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri '%URL%' -OutFile '%MSI%'" 2>nul
+if not exist "%MSI%" (
+    echo Download failed!
+    pause
+    exit /b 1
+)
+
+echo ===== SILENT INSTALL =====
+msiexec /i "%MSI%" /qn /norestart
+
+REM ===== DETECT EXE PATH =====
+:WAIT_INSTALL
+if exist "C:\Program Files\RustDesk\RustDesk.exe" (
+    set EXE=C:\Program Files\RustDesk\RustDesk.exe
+    goto INSTALL_DONE
+)
+if exist "C:\Program Files (x86)\RustDesk\RustDesk.exe" (
+    set EXE=C:\Program Files (x86)\RustDesk\RustDesk.exe
+    goto INSTALL_DONE
+)
+echo Waiting for RustDesk.exe to appear...
+timeout /t 3 >nul
+goto WAIT_INSTALL
+
+:INSTALL_DONE
+echo Install completed at "%EXE%"
+
+REM ===== KILL GUI IF RUNNING =====
+taskkill /im RustDesk.exe /f >nul 2>&1
+
+REM ===== CREATE PERMANENT SERVICE =====
+sc query rustdesk >nul 2>&1
+if errorlevel 1 (
+    sc create rustdesk binPath= "\"%EXE%\" --service" start= auto obj= LocalSystem DisplayName= "RustDesk Service"
+) else (
+    sc config rustdesk start= auto obj= LocalSystem
+)
+
+REM ===== START SERVICE =====
+sc start rustdesk >nul 2>&1
+timeout /t 5 >nul
+
+REM ===== SET PASSWORD =====
+"%EXE%" --password %PASS%
+
+REM ===== GET RUSTDESK ID =====
+"%EXE%" --get-id | more
+
+REM ===== CLEANUP =====
+del "%MSI%" >nul 2>&1
+
+echo DONE. RustDesk service is now permanent and will survive reboots.
+pause
