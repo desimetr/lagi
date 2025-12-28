@@ -1,0 +1,22 @@
+:: 1. Install RustDesk as a service (run only if not already installed)
+"C:\Program Files\RustDesk\rustdesk.exe" --install-service
+
+:: 2. Restart the RustDesk service (this is usually the key step)
+net stop RustDesk
+net start RustDesk
+
+:: Alternative way to restart using sc
+sc stop RustDesk
+sc start RustDesk
+
+:: 3. Check the current status of the service
+sc query RustDesk
+
+:: 4. Get the ID again (should still show 380467100)
+"C:\Program Files\RustDesk\rustdesk.exe" --get-id
+
+:: 5. (Optional) Temporarily disable Windows Firewall for testing
+powershell -Command "Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False"
+
+:: 6. (Optional) Re-enable Windows Firewall after testing
+powershell -Command "Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True"
